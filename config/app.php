@@ -160,6 +160,7 @@ return [
          * Package Service Providers...
          */
         Intervention\Image\ImageServiceProvider::class,
+        Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
         /*
          * Application Service Providers...
          */
