@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('mail_settings', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['Active', 'Inactive'])->default('Active');
-            $table->integer('created_by');
-            $table->integer('updated_by')->nullable();
-            $table->integer('deleted_by')->nullable();
+            $table->string('mailer');
+            $table->string('host');
+            $table->string('port');
+            $table->string('username');
+            $table->string('password');
+            $table->string('encryption');
+            $table->string('from_address');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('mail_settings');
     }
 };

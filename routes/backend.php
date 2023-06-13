@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Backend\AdminController;
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\ChargeController;
-use App\Http\Controllers\Backend\EmployeeController;
-use App\Http\Controllers\Backend\ServiceController;
-use App\Http\Controllers\Backend\SubcategoryController;
-use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\Admin\CategoryController;
+use App\Http\Controllers\Backend\Admin\SubcategoryController;
+use App\Http\Controllers\Backend\Admin\ChargeController;
+use App\Http\Controllers\Backend\Employee\EmployeeController;
+use App\Http\Controllers\Backend\User\ServiceController;
+use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Admin Route--------------------------------------------------------------------------
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:Admin', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'adminDashboard'])->name('dashboard');
-    Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
 
     Route::resource('category', CategoryController::class);
 
@@ -34,18 +33,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
 });
 
 // Employee Route--------------------------------------------------------------------------
-Route::prefix('employee')->name('employee.')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('employee')->name('employee.')->middleware(['auth', 'role:Employee', 'verified'])->group(function () {
     Route::get('/dashboard', [EmployeeController::class, 'employeeDashboard'])->name('dashboard');
-    Route::get('/profile', [EmployeeController::class, 'profile'])->name('profile');
 
     Route::resource('service', ServiceController::class);
 
 });
 
 // User Route--------------------------------------------------------------------------
-Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('user')->name('user.')->middleware(['auth', 'role:User', 'verified'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'userDashboard'])->name('dashboard');
-    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
     Route::resource('service', ServiceController::class);
 

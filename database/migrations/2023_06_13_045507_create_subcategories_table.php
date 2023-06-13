@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('subcategories', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id');
+            $table->string('name');
+            $table->string('photo');
+            $table->enum('status', ['Active', 'Inactive'])->default('Active');
+            $table->integer('created_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
