@@ -24,12 +24,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{{ asset('uploads/profile_photo') }}/{{ $user->profile_photo }}" alt="Profile Photo" class="rounded-circle p-1 bg-primary" width="110">
+                            <img src="{{ asset('uploads/profile_photo') }}/{{ $user->profile_photo }}" alt="Profile Photo" class="rounded-circle p-1 bg-primary" width="120" height="120" id="profilePhotoPreview">
                             <div class="mt-3">
                                 <h4>{{ $user->name }}</h4>
                                 <p class="text-secondary mb-1">{{ $user->email }}</p>
-                                <p class="text-muted font-size-sm">{{ $user->created_at }}</p>
-                                <p class="text-muted font-size-sm">{{ $user->last_active_at }}</p>
+                                <p class="text-muted font-size-sm">{{ $user->created_at->format('D d-M,Y h:m:s A') }}</p>
+                                <p class="text-muted font-size-sm">{{ date('d-M,Y h:m:s A', strtotime($user->last_active_at)) }}</p>
                             </div>
                         </div>
                         <hr class="my-4" />
@@ -71,7 +71,7 @@
                                     <h6 class="mb-0">Profile Photo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="file" class="form-control" name="profile_photo" />
+                                    <input type="file" class="form-control" name="profile_photo" id="profilePhoto"/>
                                     @error('profile_photo')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -129,6 +129,28 @@
                                 <div class="col-sm-9 text-secondary">
                                     <input type="date" class="form-control" name="date_of_birth" value="{{ old('date_of_birth', $user->date_of_birth) }}" />
                                     @error('date_of_birth')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Gender</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="Male" value="Male" @checked(old('gender', $user->gender) == 'Male')>
+                                        <label class="form-check-label" for="Male">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" @checked(old('gender', $user->gender) == 'Female')>
+                                        <label class="form-check-label" for="Female">Female</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="Other" value="Other" @checked(old('gender', $user->gender) == 'Other')>
+                                        <label class="form-check-label" for="Other">Other</label>
+                                    </div>
+                                    @error('gender')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -207,4 +229,19 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function(){
+        // Profile Photo Preview
+        $('#profilePhoto').change(function(){
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#profilePhotoPreview').attr('src', e.target.result).show();
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    })
+</script>
 @endsection

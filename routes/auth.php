@@ -36,7 +36,6 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
     Route::patch('/profile/update', [ProfileController::class, 'profileUpdate'])->name('profile.update');
     Route::put('password/update', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 });

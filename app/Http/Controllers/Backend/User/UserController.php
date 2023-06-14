@@ -11,4 +11,10 @@ class UserController extends Controller
     public function userDashboard() {
         return view('backend.user.dashboard');
     }
+
+    public function userProfile() {
+        return view('backend.user.profile', [
+            'user' => Auth::user(),
+        ]);
+    }
 }

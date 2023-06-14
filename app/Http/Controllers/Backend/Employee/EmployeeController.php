@@ -11,4 +11,10 @@ class EmployeeController extends Controller
     public function employeeDashboard() {
         return view('backend.employee.dashboard');
     }
+
+    public function employeeProfile() {
+        return view('backend.employee.profile', [
+            'user' => Auth::user(),
+        ]);
+    }
 }

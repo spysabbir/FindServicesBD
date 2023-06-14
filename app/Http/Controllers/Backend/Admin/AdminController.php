@@ -11,4 +11,10 @@ class AdminController extends Controller
     public function adminDashboard() {
         return view('backend.admin.dashboard');
     }
+
+    public function adminProfile() {
+        return view('backend.admin.profile', [
+            'user' => Auth::user(),
+        ]);
+    }
 }

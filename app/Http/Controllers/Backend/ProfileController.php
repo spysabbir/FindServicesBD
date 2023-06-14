@@ -13,23 +13,6 @@ use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
-    public function profile(){
-        $url = '';
-        if (Auth::user()->role == 'Admin') {
-            $url = 'backend.admin.profile';
-        }
-        if (Auth::user()->role == 'Employee') {
-            $url = 'backend.employee.profile';
-        }
-        if (Auth::user()->role == 'User') {
-            $url = 'backend.user.profile';
-        }
-
-        return view($url, [
-            'user' => Auth::user(),
-        ]);
-    }
-
     public function profileUpdate(Request $request){
         $request->validate([
             'name' => ['string', 'max:255'],
