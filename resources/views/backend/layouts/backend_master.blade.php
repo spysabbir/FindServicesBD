@@ -11,9 +11,10 @@
 	<!--plugins-->
 	<link href="{{ asset('backend') }}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{ asset('backend') }}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
-	<link href="{{ asset('backend') }}/plugins/highcharts/css/highcharts.css" rel="stylesheet" />
 	<link href="{{ asset('backend') }}/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-	<link href="{{ asset('backend') }}/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+
+    {{-- <link href="{{ asset('backend') }}/plugins/highcharts/css/highcharts.css" rel="stylesheet" /> --}}
+
 	<!-- loader-->
 	<link href="{{ asset('backend') }}/css/pace.min.css" rel="stylesheet" />
 	<script src="{{ asset('backend') }}/js/pace.min.js"></script>
@@ -28,7 +29,11 @@
 	<link rel="stylesheet" href="{{ asset('backend') }}/css/semi-dark.css" />
 	<link rel="stylesheet" href="{{ asset('backend') }}/css/header-colors.css" />
 
+    <link href="{{ asset('backend') }}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <link href="{{ asset('backend') }}/plugins/toastr/toastr.css" rel="stylesheet">
+    <link href="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+
+
 	<title>{{ env('APP_NAME') }} – @yield('title')</title>
 </head>
 
@@ -38,11 +43,23 @@
 		<!--sidebar wrapper -->
 		<div class="sidebar-wrapper" data-simplebar="true">
 			<div class="sidebar-header">
+                @php
+                    $url = '';
+                    if (Auth::user()->role === 'Admin') {
+                        $url = route('admin.dashboard');
+                    } elseif (Auth::user()->role === 'Employee') {
+                        $url = route('employee.dashboard');
+                    }elseif (Auth::user()->role === 'User') {
+                        $url = route('user.dashboard');
+                    }else {
+                        abort(401);
+                    }
+                @endphp
 				<div>
-					<a href="{{ route('admin.dashboard') }}"><img src="{{ asset('backend') }}/images/logo-icon.png" class="logo-icon" alt="logo icon"></a>
+					<a href="{{ $url }}"><img src="{{ asset('backend') }}/images/logo-icon.png" class="logo-icon" alt="logo icon"></a>
 				</div>
 				<div>
-					<a href="{{ route('admin.dashboard') }}"><h4 class="logo-text">{{ env('APP_NAME') }}</h4></a>
+					<a href="{{ $url }}"><h4 class="logo-text">{{ env('APP_NAME') }}</h4></a>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-first-page'></i>
 				</div>
@@ -263,22 +280,17 @@
 	<script src="{{ asset('backend') }}/plugins/simplebar/js/simplebar.min.js"></script>
 	<script src="{{ asset('backend') }}/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="{{ asset('backend') }}/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-	<script src="{{ asset('backend') }}/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-	<script src="{{ asset('backend') }}/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="{{ asset('backend') }}/plugins/highcharts/js/highcharts.js"></script>
-	<script src="{{ asset('backend') }}/plugins/highcharts/js/exporting.js"></script>
-	<script src="{{ asset('backend') }}/plugins/highcharts/js/variable-pie.js"></script>
-	<script src="{{ asset('backend') }}/plugins/highcharts/js/export-data.js"></script>
-	<script src="{{ asset('backend') }}/plugins/highcharts/js/accessibility.js"></script>
-	<script src="{{ asset('backend') }}/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
 
+	{{-- <script src="{{ asset('backend') }}/plugins/highcharts/js/highcharts.js"></script>
+	<script src="{{ asset('backend') }}/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+	<script src="{{ asset('backend') }}/js/index.js"></script> --}}
+
+    <script src="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
     <script src="{{asset('backend')}}/plugins/printThis/printThis.js"></script>
+    <script src="{{ asset('backend') }}/plugins/datatable/js/jquery.dataTables.min.js"></script>
+	<script src="{{ asset('backend') }}/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 
-    <script>
-		new PerfectScrollbar('.dashboard-top-countries');
-	</script>
-	<script src="{{ asset('backend') }}/js/index.js"></script>
 	<!--app JS-->
 	<script src="{{ asset('backend') }}/js/app.js"></script>
 

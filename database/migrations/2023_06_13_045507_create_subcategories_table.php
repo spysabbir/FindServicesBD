@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('subcategories', function (Blueprint $table) {
             $table->id();
             $table->integer('category_id');
-            $table->string('name');
-            $table->string('photo');
+            $table->string('subcategory_name');
+            $table->string('subcategory_photo');
             $table->enum('status', ['Active', 'Inactive'])->default('Active');
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();

@@ -26,6 +26,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:Admin', 'verif
     Route::get('/profile', [AdminController::class, 'adminProfile'])->name('profile');
 
     Route::resource('category', CategoryController::class);
+    Route::get('category-trash', [CategoryController::class, 'trash'])->name('category.trash');
+    Route::get('category-restore/{id}', [CategoryController::class, 'restore'])->name('category.restore');
+    Route::get('category-forcedelete/{id}', [CategoryController::class, 'forceDelete'])->name('category.force.delete');
+    Route::get('category-status/{id}', [CategoryController::class, 'status'])->name('category.status');
 
     Route::resource('subcategory', SubcategoryController::class);
 

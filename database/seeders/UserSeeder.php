@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@email.com',
                 'password' => Hash::make('12345678'),
                 'role' => 'Admin',
+                'created_at' => Carbon::now(),
             ],
             // Employee
             [
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 'email' => 'employee@email.com',
                 'password' => Hash::make('12345678'),
                 'role' => 'Employee',
+                'created_at' => Carbon::now(),
             ],
             // User
             [
@@ -38,6 +40,7 @@ class UserSeeder extends Seeder
                 'email' => 'user@email.com',
                 'password' => Hash::make('12345678'),
                 'role' => 'User',
+                'created_at' => Carbon::now(),
             ]
         ]);
     }

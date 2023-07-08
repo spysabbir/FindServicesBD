@@ -31,12 +31,27 @@
             </li>
         </ul>
     </li>
-    <li class="menu-label">UI Elements</li>
+    @if (Auth::user()->role == 'Admin')
+    <li class="menu-label">Resource</li>
     <li>
-        <a href="widgets.html">
+        <a href="{{ route('admin.category.index') }}">
             <div class="parent-icon"><i class='bx bx-briefcase-alt-2'></i>
             </div>
-            <div class="menu-title">Widgets</div>
+            <div class="menu-title">Category</div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('admin.subcategory.index') }}">
+            <div class="parent-icon"><i class='bx bx-briefcase-alt-2'></i>
+            </div>
+            <div class="menu-title">Subcategory</div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('admin.charge.index') }}">
+            <div class="parent-icon"><i class='bx bx-briefcase-alt-2'></i>
+            </div>
+            <div class="menu-title">Charge</div>
         </a>
     </li>
     <li>
@@ -46,36 +61,48 @@
             <div class="menu-title">eCommerce</div>
         </a>
         <ul>
-            <li> <a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Products</a>
+            <li>
+                <a href="#"><i class="bx bx-right-arrow-alt"></i>Products</a>
             </li>
-            <li> <a href="ecommerce-products-details.html"><i class="bx bx-right-arrow-alt"></i>Product Details</a>
+            <li>
+                <a href="#"><i class="bx bx-right-arrow-alt"></i>Product Details</a>
             </li>
-            <li> <a href="ecommerce-add-new-products.html"><i class="bx bx-right-arrow-alt"></i>Add New Products</a>
+            <li>
+                <a href="#"><i class="bx bx-right-arrow-alt"></i>Add New Products</a>
             </li>
-            <li> <a href="ecommerce-orders.html"><i class="bx bx-right-arrow-alt"></i>Orders</a>
+            <li>
+                <a href="#"><i class="bx bx-right-arrow-alt"></i>Orders</a>
             </li>
         </ul>
     </li>
+    @endif
+
+    @if (Auth::user()->role == 'Employee')
     <li class="menu-label">Others</li>
     <li>
-        <a class="has-arrow" href="javascript:;">
-            <div class="parent-icon"><i class="bx bx-menu"></i>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class='bx bx-cart-alt' ></i>
             </div>
-            <div class="menu-title">Menu Levels</div>
+            <div class="menu-title">eCommerce</div>
         </a>
         <ul>
-            <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level One</a>
-                <ul>
-                    <li> <a class="has-arrow" href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level Two</a>
-                        <ul>
-                            <li> <a href="javascript:;"><i class="bx bx-right-arrow-alt"></i>Level Three</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <li>
+                <a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Products</a>
+            </li>
+            <li>
+                <a href="ecommerce-products-details.html"><i class="bx bx-right-arrow-alt"></i>Product Details</a>
+            </li>
+            <li>
+                <a href="ecommerce-add-new-products.html"><i class="bx bx-right-arrow-alt"></i>Add New Products</a>
+            </li>
+            <li>
+                <a href="ecommerce-orders.html"><i class="bx bx-right-arrow-alt"></i>Orders</a>
             </li>
         </ul>
     </li>
+    @endif
+
+    @if (Auth::user()->role == 'User')
     <li>
         <a href="https://codervent.com/{{ env('APP_NAME') }}/documentation/index.html" target="_blank">
             <div class="parent-icon"><i class='bx bx-file' ></i>
@@ -90,4 +117,5 @@
             <div class="menu-title">Support</div>
         </a>
     </li>
+    @endif
 </ul>
