@@ -32,6 +32,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:Admin', 'verif
     Route::get('category-status/{id}', [CategoryController::class, 'status'])->name('category.status');
 
     Route::resource('subcategory', SubcategoryController::class);
+    Route::get('subcategory-trash', [SubcategoryController::class, 'trash'])->name('subcategory.trash');
+    Route::get('subcategory-restore/{id}', [SubcategoryController::class, 'restore'])->name('subcategory.restore');
+    Route::get('subcategory-forcedelete/{id}', [SubcategoryController::class, 'forceDelete'])->name('subcategory.force.delete');
+    Route::get('subcategory-status/{id}', [SubcategoryController::class, 'status'])->name('subcategory.status');
 
     Route::resource('charge', ChargeController::class);
 });

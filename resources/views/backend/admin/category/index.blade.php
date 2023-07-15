@@ -40,15 +40,15 @@
                                     @csrf
                                     <div class="modal-body">
                                         <div class="mb-3">
-                                            <label>Category name</label>
+                                            <label class="form-label">Category name</label>
                                             <input type="text" class="form-control" name="category_name" placeholder="Category name">
                                             <span class="text-danger error-text category_name_error"></span>
                                         </div>
                                         <div class="mb-3">
-                                            <label>Category photo</label>
+                                            <label class="form-label">Category photo</label>
                                             <input type="file" class="form-control" name="category_photo" id="storeImage">
-                                            <span class="text-danger error-text category_photo_error"></span>
-                                            <img src="" alt="category_photo" id="storeImagePreview" width="100" height="100" class="mt-3">
+                                            <span class="text-danger error-text category_photo_error"></span> <br>
+                                            <img src="" alt="category_photo" id="storeImagePreview" width="80" height="80" class="mt-3">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -126,15 +126,15 @@
                                             <div class="modal-body">
                                                 <input type="hidden" id="category_id">
                                                 <div class="mb-3">
-                                                    <label>Category name</label>
+                                                    <label class="form-label">Category name</label>
                                                     <input type="text" class="form-control" name="category_name" id="category_name">
                                                     <span class="text-danger error-text update_category_name_error"></span>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label>Category photo</label>
+                                                    <label class="form-label">Category photo</label>
                                                     <input type="file" class="form-control" name="category_photo" id="updateImage">
-                                                    <span class="text-danger error-text update_category_photo_error"></span>
-                                                    <img src="" alt="category_photo" id="updateImagePreview" width="100" height="100" class="mt-3">
+                                                    <span class="text-danger error-text update_category_photo_error"></span> <br>
+                                                    <img src="" alt="category_photo" id="updateImagePreview" width="80" height="80" class="mt-3">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

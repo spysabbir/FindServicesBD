@@ -10,8 +10,9 @@
 	<link rel="icon" href="{{ asset('backend') }}/images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
 	<link href="{{ asset('backend') }}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-	<link href="{{ asset('backend') }}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="{{ asset('backend') }}/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="{{ asset('backend') }}/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+
 
     {{-- <link href="{{ asset('backend') }}/plugins/highcharts/css/highcharts.css" rel="stylesheet" /> --}}
 
@@ -32,7 +33,6 @@
     <link href="{{ asset('backend') }}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <link href="{{ asset('backend') }}/plugins/toastr/toastr.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet">
-
 
 	<title>{{ env('APP_NAME') }} – @yield('title')</title>
 </head>
@@ -288,6 +288,7 @@
     <script src="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
     <script src="{{asset('backend')}}/plugins/printThis/printThis.js"></script>
+
     <script src="{{ asset('backend') }}/plugins/datatable/js/jquery.dataTables.min.js"></script>
 	<script src="{{ asset('backend') }}/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 
