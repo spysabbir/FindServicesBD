@@ -1,6 +1,6 @@
 @extends('backend.layouts.backend_master')
 
-@section('title', 'Dashboard')
+@section('title', 'Admin Dashboard')
 
 @section('content')
 <div class="row clearfix">
@@ -84,6 +84,7 @@
         </div>
     </div>
 </div>
+
 <div class="row clearfix">
     <div class="col-12">
         <div class="section_title">
@@ -112,6 +113,7 @@
         </div>
     </div>
 </div>
+
 <div class="row clearfix row-deck">
     <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -120,17 +122,6 @@
                 <small class="text-muted">Sales Performance for Online and Offline Revenue</small>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0);" class="full-screen"><i class="fa fa-expand"></i></a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu theme-bg gradient">
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-eye"></i> View Details</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-share-alt"></i> Share</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-copy"></i> Copy to</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-folder"></i> Move to</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-edit"></i> Rename</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-trash"></i> Delete</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <div class="body">
@@ -179,6 +170,7 @@
         </div>
     </div>
 </div>
+
 <div class="row clearfix row-deck">
     <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -187,17 +179,6 @@
                 <small class="text-muted">Sales Performance for Online and Offline Revenue <a href="">Learn more</a></small>
                 <ul class="header-dropdown dropdown">
                     <li><a href="javascript:void(0);" class="full-screen"><i class="fa fa-expand"></i></a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu theme-bg gradient">
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-eye"></i> View Details</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-share-alt"></i> Share</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-copy"></i> Copy to</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-folder"></i> Move to</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-edit"></i> Rename</a></li>
-                            <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-trash"></i> Delete</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <div class="body">
@@ -350,6 +331,7 @@
         </div>
     </div>
 </div>
+
 <div class="row clearfix">
     <div class="col-12">
         <div class="section_title">

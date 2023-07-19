@@ -3,228 +3,165 @@
 @section('title', 'Profile')
 
 @section('content')
-<!--breadcrumb-->
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">User Profile</div>
-    <div class="ps-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 p-0">
-                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<!--end breadcrumb-->
-<div class="container">
-    <div class="main-body">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{{ asset('uploads/profile_photo') }}/{{ $user->profile_photo }}" alt="Profile Photo" class="rounded-circle p-1 bg-primary" width="120" height="120" id="profilePhotoPreview">
-                            <div class="mt-3">
-                                <h4>{{ $user->name }}</h4>
-                                <p class="text-secondary mb-1">{{ $user->email }}</p>
-                                <p class="text-muted font-size-sm">{{ $user->created_at->format('D d-M,Y h:m:s A') }}</p>
-                                <p class="text-muted font-size-sm">{{ date('d-M,Y h:m:s A', strtotime($user->last_active_at)) }}</p>
-                            </div>
-                        </div>
-                        <hr class="my-4" />
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0">Phone Number</h6>
-                                <span class="text-secondary">{{ $user->phone_number }}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0">Date of Birth</h6>
-                                <span class="text-secondary">{{ $user->date_of_birth }}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0">Gender</h6>
-                                <span class="text-secondary">{{ $user->gender }}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0">Address</h6>
-                                <span class="text-secondary">{{ $user->address }}</span>
-                            </li>
-                        </ul>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="card social theme-bg gradient">
+            <div class="profile-header d-sm-flex justify-content-between justify-content-center">
+                <div class="d-flex">
+                    <div class="mr-3">
+                        <img src="{{ asset('uploads/profile_photo') }}/{{ $user->profile_photo }}" id="profilePhotoPreview" class="rounded" alt="">
                     </div>
+                    <div class="details">
+                        <h5 class="mb-0">{{ $user->name }}</h5>
+                        <span class="text-light">{{ $user->email }}</span>
+                        <p class="mb-0">
+                            <span>Created Account: <strong>{{ $user->created_at->format('D d-M,Y h:m:s A') }}</strong></span>
+                            <br>
+                            <span>Last Active: <strong>{{ date('d-M,Y h:m:s A', strtotime($user->last_active_at)) }}</strong></span>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-default">{{ $user->role }}</button>
+                    <button class="btn btn-dark">{{ $user->status }}</button>
                 </div>
             </div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Update Profile</h4>
-                    </div>
-                    <div class="card-body">
-                        <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-                            @csrf
-                        </form>
-                        <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
-                            @csrf
-                            @method('patch')
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Profile Photo</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="file" class="form-control" name="profile_photo" id="profilePhoto"/>
-                                    @error('profile_photo')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-5">
+        <div class="card">
+            <div class="header">
+                <h2>Info</h2>
+                <ul class="header-dropdown dropdown">
+                    <li><a href="javascript:void(0);" class="full-screen"><i class="fa fa-expand"></i></a></li>
+                </ul>
+            </div>
+            <div class="body">
+                <small class="text-muted">Email address: </small>
+                <p>{{ $user->email }}</p>
+                <hr>
+                <small class="text-muted">Mobile: </small>
+                <p>{{ $user->phone_number }}</p>
+                <hr>
+                <small class="text-muted">Birth Date: </small>
+                <p>{{ $user->date_of_birth }}</p>
+                <hr>
+                <small class="text-muted">Gender: </small>
+                <p>{{ $user->gender }}</p>
+                <hr>
+                <small class="text-muted">Address: </small>
+                <p class="m-b-0">{{ $user->address }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-7">
+        <div class="card">
+            <div class="header">
+                <h2>Basic Information</h2>
+                <ul class="header-dropdown dropdown">
+                    <li><a href="javascript:void(0);" class="full-screen"><i class="fa fa-expand"></i></a></li>
+                </ul>
+            </div>
+            <div class="body">
+                <form method="post" action="{{ route('profile.update') }}" class="" enctype="multipart/form-data">
+                    @csrf
+                    @method('patch')
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Profile photo</label>
+                                <input type="file" class="form-control" name="profile_photo" id="profilePhoto"/>
+                                @error('profile_photo')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Full Name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name', $user->name) }}" />
-                                    @error('name')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Full name</label>
+                                <input type="text" class="form-control" name="name" value="{{ old('name', $user->name) }}" placeholder="Full Name">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="email" value="{{ old('email', $user->email) }}" />
-                                    @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                                    <div class="m-2">
-                                        <p class="text-warning">Your email address is unverified.
-                                            <button form="send-verification" class="text-info">
-                                                Click here to re-send the verification email.
-                                            </button>
-                                        </p>
-                                        @if (session('status') === 'verification-link-sent')
-                                            <span class="text-success">A new verification link has been sent to your email address.</span>
-                                        @endif
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Phone Number</label>
+                                <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number', $user->phone_number) }}" placeholder="Phone Number">
+                                @error('phone_number')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Select Gander</label>
+                                <select class="form-control" name="gender">
+                                    <option value="">--Select Gander--</option>
+                                    <option value="Male" @selected(old('gender', $user->gender) == 'Male')>Male</option>
+                                    <option value="Female" @selected(old('gender', $user->gender) == 'Female')>Female</option>
+                                    <option value="Other" @selected(old('gender', $user->gender) == 'Other')>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Select Birthdate</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="icon-calendar"></i></span>
                                     </div>
-                                @endif
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Phone Number</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number', $user->phone_number) }}" />
-                                    @error('phone_number')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <input type="date" name="date_of_birth" class="form-control" value="{{ old('date_of_birth', $user->date_of_birth) }}">
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Date of Birth</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="date" class="form-control" name="date_of_birth" value="{{ old('date_of_birth', $user->date_of_birth) }}" />
-                                    @error('date_of_birth')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Enter Address</label>
+                                <textarea rows="4" type="text" class="form-control" name="address" placeholder="Address">{{ old('address', $user->address) }}</textarea>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Gender</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="Male" value="Male" @checked(old('gender', $user->gender) == 'Male')>
-                                        <label class="form-check-label" for="Male">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" @checked(old('gender', $user->gender) == 'Female')>
-                                        <label class="form-check-label" for="Female">Female</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="Other" value="Other" @checked(old('gender', $user->gender) == 'Other')>
-                                        <label class="form-check-label" for="Other">Other</label>
-                                    </div>
-                                    @error('gender')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Address</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <textarea class="form-control" name="address">{{ old('address', $user->address) }}</textarea>
-                                    @error('address')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <button type="submit" class="btn btn-primary px-4" >Update Profile</button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Update Password</h4>
+                    <button type="submit" class="btn btn-primary theme-bg gradient">Update</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Account Password</h2>
+            </div>
+            <div class="body">
+                <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+                    @csrf
+                    @method('put')
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group c_form_group">
+                                <label>Current Password</label>
+                                <input type="password" class="form-control" name="current_password" placeholder="Enter Current Password">
+                                @error('current_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group c_form_group">
+                                <label>New Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter New Password">
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group c_form_group">
+                                <label>Confirm New Password</label>
+                                <input type="password" class="form-control" name="password_confirmation" placeholder="Enter Confirm Password">
+                                @error('password_confirmation')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
-                            @csrf
-                            @method('put')
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Current Password</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="current_password" placeholder="Enter Current Password"/>
-                                    @error('current_password')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">New Password</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="password" placeholder="Enter New Password"/>
-                                    @error('password')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Confirm Password</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Enter Confirm Password"/>
-                                    @error('password_confirmation')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <button type="submit" class="btn btn-primary px-4" >Update Password</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                    <button type="submit" class="btn btn-primary theme-bg gradient">Update</button>
+                </form>
             </div>
         </div>
     </div>
