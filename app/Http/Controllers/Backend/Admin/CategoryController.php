@@ -37,20 +37,20 @@ class CategoryController extends Controller
                 if($row->status == 'Active'){
                     $status = '
                     <span class="badge bg-success">'.$row->status.'</span>
-                    <button type="button" data-id="'.$row->id.'" class="btn btn-warning btn-sm statusBtn"><i class="lni lni-ban"></i></button>
+                    <button type="button" data-id="'.$row->id.'" class="btn btn-warning btn-sm statusBtn">Status</button>
                     ';
                 }else{
                     $status = '
                     <span class="badge bg-warning">'.$row->status.'</span>
-                    <button type="button" data-id="'.$row->id.'" class="btn btn-success btn-sm statusBtn"><i class="lni lni-checkmark-circle"></i></button>
+                    <button type="button" data-id="'.$row->id.'" class="btn btn-success btn-sm statusBtn">Status</button>
                     ';
                 };
                 return $status;
             })
             ->addColumn('action', function ($row) {
                 $btn = '
-                    <button type="button" data-id="'.$row->id.'" class="btn btn-warning btn-sm editBtn" data-bs-toggle="modal" data-bs-target="#editModal"><i class="lni lni-pencil-alt"></i></button>
-                    <button type="button" data-id="'.$row->id.'" class="btn btn-danger btn-sm deleteBtn"><i class="fadeIn animated bx bx-trash-alt"></i></button>
+                    <button type="button" data-id="'.$row->id.'" class="btn btn-default btn-sm editBtn" data-toggle="modal" data-target="#editModal">Edit</button>
+                    <button type="button" data-id="'.$row->id.'" class="btn btn-danger btn-sm deleteBtn">Delete</button>
                 ';
                 return $btn;
             })
@@ -151,8 +151,8 @@ class CategoryController extends Controller
             return DataTables::of($recycle_companies)
             ->addColumn('action', function ($row) {
                 $btn = '
-                    <button type="button" data-id="'.$row->id.'" class="btn btn-success btn-sm restoreBtn"><i class="fadeIn animated bx bx-reset"></i></button>
-                    <button type="button" data-id="'.$row->id.'" class="btn btn-danger btn-sm forceDeleteBtn"><i class="lni lni-close"></i></button>
+                    <button type="button" data-id="'.$row->id.'" class="btn btn-success btn-sm restoreBtn">Reset</button>
+                    <button type="button" data-id="'.$row->id.'" class="btn btn-danger btn-sm forceDeleteBtn">Close</button>
                 ';
                 return $btn;
             })

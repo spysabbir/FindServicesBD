@@ -22,13 +22,21 @@
     <link rel="stylesheet" href="{{ asset('backend') }}/vendor/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="{{ asset('backend') }}/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
 
-    {{-- <link href="{{ asset('backend') }}/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-    <link href="{{ asset('backend') }}/plugins/toastr/toastr.css" rel="stylesheet">
-    <link href="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('backend') }}/vendor/datatable/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="{{ asset('backend') }}/vendor/toastr/toastr.css">
+    <link rel="stylesheet" href="{{ asset('backend') }}/vendor/sweetalert2/sweetalert2.min.css">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('backend') }}/css/mooli.min.css">
-
+    <style>
+        td.details-control {
+        background: url('{{ asset('backend') }}/images/details_open.png') no-repeat center center;
+        cursor: pointer;
+    }
+        tr.shown td.details-control {
+            background: url('{{ asset('backend') }}/images/details_close.png') no-repeat center center;
+        }
+    </style>
 </head>
 <body data-theme="light">
 
@@ -293,68 +301,7 @@
                             </ul>
                         </div>
                     </div>
-                    <nav id="left-sidebar-nav" class="sidebar-nav">
-                        <ul id="main-menu" class="metismenu animation-li-delay">
-                            <li class="header">Main</li>
-                            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                            <li class="header">Apps</li>
-                            <li><a href="app-inbox.html"><i class="fa fa-envelope"></i> <span>Email</span> <span class="badge badge-default mr-0">12</span></a></li>
-                            <li><a href="app-chat.html"><i class="fa fa-comments"></i> <span>Chat</span></a></li>
-                            <li class="header">Vendors</li>
-                            <li>
-                                <a href="#uiElements" class="has-arrow"><i class="fa fa-diamond"></i><span>ui Elements</span></a>
-                                <ul>
-                                    <li><a href="ui-helper-class.html">Helper Classes</a></li>
-                                    <li><a href="ui-bootstrap.html">Bootstrap UI</a></li>
-                                    <li><a href="ui-typography.html">Typography</a></li>
-                                    <li><a href="ui-tabs.html">Tabs</a></li>
-                                    <li><a href="ui-buttons.html">Buttons</a></li>
-                                    <li><a href="ui-icons.html">Icons</a></li>
-                                    <li><a href="ui-notifications.html">Notifications</a></li>
-                                    <li><a href="ui-colors.html">Colors</a></li>
-                                    <li><a href="ui-dialogs.html">Dialogs</a></li>
-                                    <li><a href="ui-list-group.html">List Group</a></li>
-                                    <li><a href="ui-media-object.html">Media Object</a></li>
-                                    <li><a href="ui-modals.html">Modals</a></li>
-                                    <li><a href="ui-nestable.html">Nestable</a></li>
-                                    <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                                    <li><a href="ui-range-sliders.html">Range Sliders</a></li>
-                                </ul>
-                            </li>
-                            <li class="header">More Pages</li>
-                            <li><a href="widgets.html"><i class="fa fa-puzzle-piece"></i><span>Widgets</span></a></li>
-                            <li>
-                                <a href="#Pages" class="has-arrow"><i class="fa fa-folder"></i><span>Pages</span></a>
-                                <ul>
-                                    <li><a href="page-login.html">Login</a></li>
-                                    <li><a href="page-register.html">Register</a></li>
-                                    <li><a href="page-forgot-password.html">Forgot Password</a></li>
-                                    <li><a href="page-404.html">Page 404</a></li>
-                                    <li><a href="page-blank.html">Blank Page</a></li>
-                                    <li><a href="page-search-results.html">Search Results</a></li>
-                                    <li><a href="page-profile.html">Profile </a></li>
-                                    <li><a href="page-invoices.html">Invoices </a></li>
-                                    <li><a href="page-gallery.html">Image Gallery </a></li>
-                                    <li><a href="page-timeline.html">Timeline</a></li>
-                                    <li><a href="page-pricing.html">Pricing</a></li>
-                                </ul>
-                            </li>
-                            <li class="extra_widget">
-                                <div class="form-group">
-                                    <label class="d-block">Traffic this Month <span class="float-right">77%</span></label>
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="d-block">Server Load <span class="float-right">50%</span></label>
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
+                    @include('backend.layouts.navigation')
                 </div>
             </div>
 
@@ -716,12 +663,14 @@
     <script src="{{ asset('backend') }}/bundles/mainscripts.bundle.js"></script>
     <script src="{{ asset('backend') }}/js/index4.js"></script>
 
-    {{-- <script src="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
-    <script src="{{asset('backend')}}/plugins/printThis/printThis.js"></script>
+    <script src="{{ asset('backend') }}/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="{{ asset('backend') }}/vendor/toastr/toastr.min.js"></script>
+    <script src="{{asset('backend')}}/vendor/printThis/printThis.js"></script>
 
-    <script src="{{ asset('backend') }}/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('backend') }}/plugins/datatable/js/dataTables.bootstrap5.min.js"></script> --}}
+    <script src="{{ asset('backend') }}/vendor/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('backend') }}/vendor/datatable/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="{{ asset('backend') }}/js/pages/tables/jquery-datatable.js"></script>
 
     <script>
         $(document).ready(function() {

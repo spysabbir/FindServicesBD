@@ -3,105 +3,85 @@
 @section('title', 'Category')
 
 @section('content')
-<!--breadcrumb-->
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">{{ env('APP_NAME') }}</div>
-    <div class="ps-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 p-0">
-                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Category</li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<!--end breadcrumb-->
-<div class="row">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-header d-flex justify-content-between">
-                <div class="text">
-                    <h4 class="card-title">Category</h4>
-                    <p class="card-text">List</p>
-                </div>
-                <div class="action">
-                    <!-- Create Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal"><i class="lni lni-plus"></i></button>
-                    <!-- createModal -->
-                    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Create</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <form id="createForm" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="form-label">Category name</label>
-                                            <input type="text" class="form-control" name="category_name" placeholder="Category name">
-                                            <span class="text-danger error-text category_name_error"></span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Category photo</label>
-                                            <input type="file" class="form-control" name="category_photo" id="storeImage">
-                                            <span class="text-danger error-text category_photo_error"></span> <br>
-                                            <img src="" alt="category_photo" id="storeImagePreview" width="80" height="80" class="mt-3">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Store</button>
-                                    </div>
-                                </form>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12">
+        <div class="card planned_task">
+            <div class="header">
+                <h2>Category</h2>
+                <ul class="header-dropdown dropdown">
+                    <li><a href="javascript:void(0);" class="full-screen"><i class="fa fa-expand"></i></a></li>
+                </ul>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#createModal">Create</button>
+                <!-- Modal with btn -->
+                <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Create Model</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Trashed Button trigger modal -->
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trashedModal"><i class="fadeIn animated bx bx-recycle"></i></button>
-                    <!-- trashedModal -->
-                    <div class="modal fade" id="trashedModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Trashed</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                            <form id="createForm" enctype="multipart/form-data">
+                                @csrf
                                 <div class="modal-body">
-                                    <table class="table table-striped table-hover table-borderless table-primary align-middle" id="trashedDataTable" style="width: 100%">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>Category Name</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                    <div class="mb-3">
+                                        <label class="form-label">Category Name</label>
+                                        <input type="text" class="form-control" name="category_name" placeholder="Category Name">
+                                        <span class="text-danger error-text category_name_error"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Category Photo</label>
+                                        <input type="file" class="form-control" name="category_photo" id="storeImage">
+                                        <span class="text-danger error-text category_photo_error"></span> <br>
+                                        <img src="" alt="category_photo" id="storeImagePreview" width="80" height="80" class="mt-3">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary theme-bg gradient">Create</button>
                                 </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#trashedModal">Trashed</button>
+                <!-- Modal with btn -->
+                <div class="modal fade" id="trashedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped table-hover table-borderless table-primary align-middle" id="trashedDataTable" style="width: 100%">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Category Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="filter mb-3">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <label class="form-label"></label>
-                            <select class="form-control filter_data" id="status">
-                                <option value="">-- Select Status --</option>
-                                <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
-                            </select>
-                        </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="form-label"></label>
+                        <select class="form-control filter_data" id="status">
+                            <option value="">-- Select Status --</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover table-borderless table-primary align-middle" id="allDataTable">
+                    <table class="table table-striped table-hover" id="allDataTable">
                         <thead>
                             <tr>
                                 <th>Sl No</th>
@@ -111,14 +91,23 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Sl No</th>
+                                <th>Category Name</th>
+                                <th>Category Photo</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
                         <tbody>
-                            <!-- Edit Modal -->
-                            <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
+
+                            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Edit</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         </div>
                                         <form id="editForm" enctype="multipart/form-data">
                                             @csrf
@@ -126,20 +115,20 @@
                                             <div class="modal-body">
                                                 <input type="hidden" id="category_id">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Category name</label>
+                                                    <label class="form-label">Category Name</label>
                                                     <input type="text" class="form-control" name="category_name" id="category_name">
                                                     <span class="text-danger error-text update_category_name_error"></span>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label">Category photo</label>
+                                                    <label class="form-label">Category Photo</label>
                                                     <input type="file" class="form-control" name="category_photo" id="updateImage">
                                                     <span class="text-danger error-text update_category_photo_error"></span> <br>
                                                     <img src="" alt="category_photo" id="updateImagePreview" width="80" height="80" class="mt-3">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary theme-bg gradient">Edit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -152,7 +141,6 @@
         </div>
     </div>
 </div>
-<!--end row-->
 @endsection
 
 @section('script')
