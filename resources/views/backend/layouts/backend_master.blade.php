@@ -281,9 +281,21 @@
 
             <!-- Main left sidebar menu -->
             <div id="left-sidebar" class="sidebar">
-                <a href="#" class="menu_toggle"><i class="fa fa-angle-left"></i></a>
+                <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-angle-left"></i></a>
                 <div class="navbar-brand">
-                    <a href="#"><img src="{{ asset('backend') }}/images/icon.svg" alt="Mooli Logo" class="img-fluid logo"><span>{{ env('APP_NAME') }}</span></a>
+                    @php
+                        $dashboardUrl = '';
+                        if (Auth::user()->role == 'Admin') {
+                            $dashboardUrl = url('admin/dashboard');
+                        } elseif (Auth::user()->role == 'Employee') {
+                            $dashboardUrl = url('employee/dashboard');
+                        } elseif (Auth::user()->role == 'User') {
+                            $dashboardUrl = url('user/dashboard');
+                        }else {
+                            abort(404);
+                        }
+                    @endphp
+                    <a href="{{ $dashboardUrl }}"><img src="{{ asset('backend') }}/images/icon.svg" alt="Mooli Logo" class="img-fluid logo"><span>{{ env('APP_NAME') }}</span></a>
                     <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="fa fa-close"></i></button>
                 </div>
                 <div class="sidebar-scroll">
