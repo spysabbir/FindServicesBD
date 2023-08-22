@@ -3,58 +3,77 @@
 @section('title', 'Reset Password')
 
 @section('content')
-<div class="authentication-header"></div>
-<div class="authentication-reset-password d-flex align-items-center justify-content-center">
-    <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-            <div class="card">
-                <div class="row g-0">
-                    <div class="col-lg-5 border-end">
-                        <div class="card-body">
-                            <div class="p-5">
-                                <div class="text-start">
-                                    <img src="{{ asset('backend') }}/images/logo-img.png" width="180" alt="">
-                                </div>
-                                <h4 class="mt-5 font-weight-bold">Genrate New Password</h4>
-                                <p class="text-muted">We received your reset password request. Please enter your new password!</p>
-                                <form method="POST" action="{{ route('password.store') }}">
-                                    @csrf
-                                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                                    <input type="hidden" name="email" value="{{ old('email', $request->email) }}">
-                                    <div class="col-12">
-                                        <label for="password" class="form-label">Password</label>
-                                        <div class="input-group" id="show_hide_password">
-                                            <input type="password" class="form-control border-end-0" id="password" name="password" placeholder="Enter Password">
-                                            <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                                        </div>
-                                        @error('password')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                        <div class="input-group" id="show_hide_password">
-                                            <input type="password" class="form-control border-end-0" id="password_confirmation" name="password_confirmation" placeholder="Enter Confirm Password">
-                                            <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                                        </div>
-                                        @error('password_confirmation')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="d-grid gap-2">
-                                        <button type="submit" class="btn btn-primary">Reset Password</button>
-                                        <a href="{{ route('login') }}" class="btn btn-light"><i class='bx bx-arrow-back mr-1'></i>Back to Login</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <img src="{{ asset('backend') }}/images/login-images/forgot-password-frent-img.jpg" class="card-img login-img h-100" alt="...">
-                    </div>
-                </div>
-            </div>
+<!--begin::Wrapper-->
+<div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
+    <!--begin::Form-->
+    <form class="form w-100" method="POST" action="{{ route('password.store') }}">
+        @csrf
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <input type="hidden" name="email" value="{{ old('email', $request->email) }}">
+        <!--begin::Heading-->
+        <div class="text-center mb-10">
+            <!--begin::Title-->
+            <h1 class="text-dark mb-3">Setup New Password</h1>
+            <!--end::Title-->
+            <!--begin::Link-->
+            <div class="text-gray-400 fw-bold fs-4">Already have reset your password ?
+            <a href="{{ route('login') }}" class="link-primary fw-bolder">Sign in here</a></div>
+            <!--end::Link-->
         </div>
+        <!--begin::Heading-->
+        <!--begin::Input group-->
+        <div class="mb-10 fv-row" data-kt-password-meter="true">
+            <!--begin::Wrapper-->
+            <div class="mb-1">
+                <!--begin::Label-->
+                <label class="form-label fw-bolder text-dark fs-6">Password</label>
+                <!--end::Label-->
+                <!--begin::Input wrapper-->
+                <div class="position-relative mb-3">
+                    <input class="form-control form-control-lg form-control-solid" type="password" placeholder="Enter Password" name="password" autocomplete="off" />
+                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                        <i class="bi bi-eye-slash fs-2"></i>
+                        <i class="bi bi-eye fs-2 d-none"></i>
+                    </span>
+                </div>
+                <!--end::Input wrapper-->
+                <!--begin::Meter-->
+                <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                </div>
+                <!--end::Meter-->
+            </div>
+            <!--end::Wrapper-->
+            <!--begin::Hint-->
+            <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
+            <!--end::Hint-->
+            @error('password')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        <!--end::Input group=-->
+        <!--begin::Input group=-->
+        <div class="fv-row mb-10">
+            <label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
+            <input class="form-control form-control-lg form-control-solid" type="password" placeholder="Enter Confirm Password" name="password_confirmation" autocomplete="off" />
+            @error('password_confirmation')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        <!--end::Input group=-->
+        <!--begin::Action-->
+        <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-primary fw-bolder">
+                <span class="indicator-label">Submit</span>
+            </button>
+        </div>
+        <!--end::Action-->
+    </form>
+    <!--end::Form-->
     </div>
-</div>
+    <!--end::Wrapper-->
+
 @endsection

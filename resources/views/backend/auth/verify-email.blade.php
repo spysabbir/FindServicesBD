@@ -3,33 +3,36 @@
 @section('title', 'Verification Email')
 
 @section('content')
-<div class="authentication-header"></div>
-<div class="authentication-forgot d-flex align-items-center justify-content-center">
-    <div class="card forgot-box">
-        <div class="card-body">
-            <div class="p-4 rounded">
-                <div class="text-center">
-                    <img src="{{ asset('backend') }}/images/icons/lock.png" width="120" alt="" />
-                </div>
-                <h4 class="mt-5 font-weight-bold">Thanks for signing up!</h4>
-                <p class="text-muted">Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.</p>
-                @if (session('status') == 'verification-link-sent')
-                    <span class="text-success">A new verification link has been sent to the email address you provided during registration.</span>
-                @endif
-                <form method="POST" action="{{ route('verification.send') }}">
-                    @csrf
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Resend Verification Email</button>
-                    </div>
-                </form>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-danger btn-lg">Log Out</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+<!--begin::Wrapper-->
+<div class="pt-lg-10">
+    <!--begin::Logo-->
+    <h1 class="fw-bolder fs-2qx text-dark mb-7">Verify Your Email</h1>
+    <!--end::Logo-->
+    <!--begin::Message-->
+    @if (session('status') == 'verification-link-sent')
+    <div class="fs-3 fw-bold text-gray-400 mb-10">We have sent an email to
+    <a href="#" class="link-primary fw-bolder">max@keenthemes.com</a>
+    <br />pelase follow a link to verify your email.</div>
+    @endif
+    <!--end::Message-->
+    <!--begin::Action-->
+    <div class="text-center mb-10">
+        <form method="POST" action="{{ route('logout') }}">
+        @csrf
+            <button type="submit" class="btn btn-lg btn-primary fw-bolder">Log Out</button>
+        </form>
     </div>
+    <!--end::Action-->
+    <!--begin::Action-->
+    <div class="fs-5">
+        <form method="POST" action="{{ route('verification.send') }}">
+        @csrf
+            <span class="fw-bold text-gray-700">Did’t receive an email?</span>
+            <button type="submit" class="link-primary fw-bolder">Resend</button>
+        </form>
+    </div>
+    <!--end::Action-->
 </div>
+<!--end::Wrapper-->
+
 @endsection
