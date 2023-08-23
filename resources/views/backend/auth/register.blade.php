@@ -20,8 +20,16 @@
         </div>
         <!--end::Heading-->
         <!--begin::Action-->
-        <button type="button" class="btn btn-light-primary fw-bolder w-100 mb-10">
-        <img alt="Logo" src="{{ asset('backend') }}/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Sign in with Google</button>
+        <!--begin::Google link-->
+        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+            <img alt="Logo" src="{{ asset('backend') }}/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google
+        </a>
+        <!--end::Google link-->
+        <!--begin::Facebook link-->
+        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+            <img alt="Logo" src="{{ asset('backend') }}/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook
+        </a>
+        <!--end::Facebook link-->
         <!--end::Action-->
         <!--begin::Separator-->
         <div class="d-flex align-items-center mb-10">

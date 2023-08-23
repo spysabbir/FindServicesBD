@@ -44,7 +44,6 @@
 		<script src="{{ asset('backend') }}/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Custom Javascript(used by this page)-->
-		<script src="{{ asset('backend') }}/js/custom/authentication/password.js"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>

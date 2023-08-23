@@ -97,6 +97,7 @@
         <!--end::Mixed Widget 2-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-xxl-4">
         <!--begin::List Widget 5-->
@@ -249,6 +250,7 @@
         <!--end: List Widget 5-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-xxl-4">
         <!--begin::Mixed Widget 7-->
@@ -296,6 +298,7 @@
     <!--end::Col-->
 </div>
 <!--end::Row-->
+
 <!--begin::Row-->
 <div class="row gy-5 gx-xl-8">
     <!--begin::Col-->
@@ -432,6 +435,7 @@
         <!--end:List Widget 3-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-xl-8">
         <!--begin::Tables Widget 9-->
@@ -443,15 +447,7 @@
                     <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>
                 </h3>
                 <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user">
-                    <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-                    <!--begin::Svg Icon | path: icons/duotone/Communication/Add-user.svg-->
-                    <span class="svg-icon svg-icon-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                            <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                            <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
-                        </svg>
-                    </span>
-                    <!--end::Svg Icon-->New Member</a>
+
                 </div>
             </div>
             <!--end::Header-->
@@ -487,7 +483,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-45px me-5">
-                                            <img src="assets/media/avatars/150-11.jpg" alt="" />
+                                            <img src="{{ asset('backend') }}/media/avatars/150-11.jpg" alt="" />
                                         </div>
                                         <div class="d-flex justify-content-start flex-column">
                                             <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Ana Simmons</a>
@@ -557,7 +553,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-45px me-5">
-                                            <img src="assets/media/avatars/150-3.jpg" alt="" />
+                                            <img src="{{ asset('backend') }}/media/avatars/150-3.jpg" alt="" />
                                         </div>
                                         <div class="d-flex justify-content-start flex-column">
                                             <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Jessie Clarcson</a>
@@ -627,7 +623,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-45px me-5">
-                                            <img src="assets/media/avatars/150-4.jpg" alt="" />
+                                            <img src="{{ asset('backend') }}/media/avatars/150-4.jpg" alt="" />
                                         </div>
                                         <div class="d-flex justify-content-start flex-column">
                                             <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Lebron Wayde</a>
@@ -697,7 +693,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-45px me-5">
-                                            <img src="assets/media/avatars/150-5.jpg" alt="" />
+                                            <img src="{{ asset('backend') }}/media/avatars/150-5.jpg" alt="" />
                                         </div>
                                         <div class="d-flex justify-content-start flex-column">
                                             <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Natali Goodwin</a>
@@ -767,7 +763,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-45px me-5">
-                                            <img src="assets/media/avatars/150-6.jpg" alt="" />
+                                            <img src="{{ asset('backend') }}/media/avatars/150-6.jpg" alt="" />
                                         </div>
                                         <div class="d-flex justify-content-start flex-column">
                                             <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Kevin Leonard</a>
@@ -842,6 +838,7 @@
     <!--end::Col-->
 </div>
 <!--end::Row-->
+
 <!--begin::Row-->
 <div class="row gy-5 g-xl-8">
     <!--begin::Col-->
@@ -862,7 +859,7 @@
                 <div class="d-flex align-items-center mb-7">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img src="assets/media/avatars/150-1.jpg" class="" alt="" />
+                        <img src="{{ asset('backend') }}/media/avatars/150-1.jpg" class="" alt="" />
                     </div>
                     <!--end::Avatar-->
                     <!--begin::Text-->
@@ -877,7 +874,7 @@
                 <div class="d-flex align-items-center mb-7">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img src="assets/media/avatars/150-4.jpg" class="" alt="" />
+                        <img src="{{ asset('backend') }}/media/avatars/150-4.jpg" class="" alt="" />
                     </div>
                     <!--end::Avatar-->
                     <!--begin::Text-->
@@ -892,7 +889,7 @@
                 <div class="d-flex align-items-center mb-7">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img src="assets/media/avatars/150-12.jpg" class="" alt="" />
+                        <img src="{{ asset('backend') }}/media/avatars/150-12.jpg" class="" alt="" />
                     </div>
                     <!--end::Avatar-->
                     <!--begin::Text-->
@@ -907,7 +904,7 @@
                 <div class="d-flex align-items-center mb-7">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img src="assets/media/avatars/150-8.jpg" class="" alt="" />
+                        <img src="{{ asset('backend') }}/media/avatars/150-8.jpg" class="" alt="" />
                     </div>
                     <!--end::Avatar-->
                     <!--begin::Text-->
@@ -922,7 +919,7 @@
                 <div class="d-flex align-items-center">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img src="assets/media/avatars/150-6.jpg" class="" alt="" />
+                        <img src="{{ asset('backend') }}/media/avatars/150-6.jpg" class="" alt="" />
                     </div>
                     <!--end::Avatar-->
                     <!--begin::Text-->
@@ -939,6 +936,7 @@
         <!--end::List Widget 2-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-xl-4">
         <!--begin::List Widget 6-->
@@ -1071,6 +1069,7 @@
         <!--end::List Widget 6-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-xl-4">
         <!--begin::List Widget 4-->
@@ -1093,7 +1092,7 @@
                     <!--begin::Symbol-->
                     <div class="symbol symbol-50px me-5">
                         <span class="symbol-label">
-                            <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                            <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                         </span>
                     </div>
                     <!--end::Symbol-->
@@ -1113,7 +1112,7 @@
                     <!--begin::Symbol-->
                     <div class="symbol symbol-50px me-5">
                         <span class="symbol-label">
-                            <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                            <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                         </span>
                     </div>
                     <!--end::Symbol-->
@@ -1133,7 +1132,7 @@
                     <!--begin::Symbol-->
                     <div class="symbol symbol-50px me-5">
                         <span class="symbol-label">
-                            <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                            <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                         </span>
                     </div>
                     <!--end::Symbol-->
@@ -1153,7 +1152,7 @@
                     <!--begin::Symbol-->
                     <div class="symbol symbol-50px me-5">
                         <span class="symbol-label">
-                            <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                            <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                         </span>
                     </div>
                     <!--end::Symbol-->
@@ -1173,7 +1172,7 @@
                     <!--begin::Symbol-->
                     <div class="symbol symbol-50px me-5">
                         <span class="symbol-label">
-                            <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                            <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                         </span>
                     </div>
                     <!--end::Symbol-->
@@ -1196,6 +1195,7 @@
     <!--end::Col-->
 </div>
 <!--end::Row-->
+
 <!--begin::Row-->
 <div class="row g-5 gx-xxl-8">
     <!--begin::Col-->
@@ -1227,7 +1227,7 @@
                             <!--begin::Symbol-->
                             <div class="symbol symbol-50px me-3">
                                 <div class="symbol-label bg-light">
-                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50" alt="" />
+                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50" alt="" />
                                 </div>
                             </div>
                             <!--end::Symbol-->
@@ -1251,7 +1251,7 @@
                             <!--begin::Symbol-->
                             <div class="symbol symbol-50px me-3">
                                 <div class="symbol-label bg-light">
-                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50" alt="" />
+                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50" alt="" />
                                 </div>
                             </div>
                             <!--end::Symbol-->
@@ -1275,7 +1275,7 @@
                             <!--begin::Symbol-->
                             <div class="symbol symbol-50px me-3">
                                 <div class="symbol-label bg-light">
-                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50" alt="" />
+                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50" alt="" />
                                 </div>
                             </div>
                             <!--end::Symbol-->
@@ -1300,6 +1300,7 @@
         <!--end::Mixed Widget 5-->
     </div>
     <!--end::Col-->
+
     <!--begin::Col-->
     <div class="col-xxl-8">
         <!--begin::Tables Widget 5-->
@@ -1351,7 +1352,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1383,7 +1384,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1415,7 +1416,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1447,7 +1448,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1479,7 +1480,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1537,7 +1538,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1569,7 +1570,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1601,7 +1602,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1659,7 +1660,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1691,7 +1692,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1723,7 +1724,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1755,7 +1756,7 @@
                                         <td>
                                             <div class="symbol symbol-45px me-2">
                                                 <span class="symbol-label">
-                                                    <img src="assets/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
+                                                    <img src="{{ asset('backend') }}/media/svg/brand-logos/plurk.svg" class="h-50 align-self-center" alt="" />
                                                 </span>
                                             </div>
                                         </td>
@@ -1799,5 +1800,4 @@
     <!--end::Col-->
 </div>
 <!--end::Row-->
-
 @endsection
